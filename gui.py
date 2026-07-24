@@ -1,13 +1,4 @@
-"""
-gui.py
-------
-Extension Track C: Graphical Visualization, implemented with Tkinter
-(built into the Python standard library -- no extra install needed, which
-makes it the safest choice for running directly in VS Code).
 
-Usage:
-    python main.py --gui
-"""
 
 import tkinter as tk
 
@@ -25,7 +16,7 @@ COLORS = {
     CellType.DELIVERY: "#9ef5a0",
 }
 
-# Short letter shown on top of each special cell, and the legend text
+
 CELL_LABELS = {
     CellType.SHELF: ("S", "Shelf / رف تخزين"),
     CellType.CHARGER: ("C", "Charging station / محطة شحن"),
@@ -70,9 +61,9 @@ class WarehouseGUI:
         self._draw_static_grid()
         self.robot_items = {}
 
-    # ------------------------------------------------------------------ #
-    # Legend: explains every color/letter used on the map + robot badges
-    # ------------------------------------------------------------------ #
+
+
+
     def _build_legend(self):
         legend_frame = tk.LabelFrame(self.side_panel, text="Legend / دليل الرموز",
                                       font=("Consolas", 9, "bold"), padx=6, pady=6)
@@ -112,11 +103,11 @@ class WarehouseGUI:
                         x * CELL_SIZE + CELL_SIZE / 2, y * CELL_SIZE + CELL_SIZE / 2,
                         text=letter, fill="#3a3a3a", font=("Arial", 12, "bold"))
 
-    # ------------------------------------------------------------------ #
-    # Robots: colored circle + name, plus a small package badge whenever
-    # the robot is actually carrying a package (task phase == "DELIVER",
-    # i.e. it already picked it up and is on its way to the destination).
-    # ------------------------------------------------------------------ #
+
+
+
+
+
     def _draw_robots(self):
         for item_id in self.robot_items.values():
             self.canvas.delete(item_id)
@@ -131,7 +122,7 @@ class WarehouseGUI:
 
             carrying = bool(r.current_task and r.current_task.phase == "DELIVER")
 
-            # subtle red outline while carrying, to be visible even without the badge
+
             outline_color = "#8b3a00" if carrying else "black"
             outline_width = 3 if carrying else 1
 
