@@ -6,8 +6,8 @@ from path_planner import PathPlanner
 from scheduler import Scheduler
 from stats import StatisticsDashboard
 
-# how many consecutive ticks a robot may wait before it tries to replan
-# a route around the traffic jam (deadlock recovery)
+
+
 DEADLOCK_WAIT_THRESHOLD = 3
 
 
@@ -26,7 +26,7 @@ class Simulation:
         self.package_spawn_chance = package_spawn_chance
         self.all_packages = []
 
-    # ------------------------------------------------------------------ #
+
     def _spawn_robots(self, num_robots):
         robots = []
         # place robots on the first `num_robots` charging stations if available,
@@ -121,7 +121,7 @@ class Simulation:
         
         robot.consecutive_waits = 0
 
-    # ------------------------------------------------------------------ #
+
     def step(self):
         
         self.tick += 1
