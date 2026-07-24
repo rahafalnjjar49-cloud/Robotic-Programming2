@@ -1,12 +1,4 @@
-"""
-main.py
--------
-Entry point. Run from VS Code (or terminal) with:
 
-    python main.py                # text-mode simulation, 60 ticks
-    python main.py --gui           # Tkinter graphical visualization
-    python main.py --ticks 200 --robots 4 --strategy priority_queue
-"""
 
 import argparse
 
