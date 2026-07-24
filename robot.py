@@ -1,16 +1,4 @@
-"""
-robot.py
---------
-Defines the Robot itself plus two small helper classes: Battery and RobotState.
 
-Design notes (why it's split this way):
-- Battery is its own class so battery logic (drain, charge, threshold checks)
-  is testable in isolation and can be swapped for a different model later.
-- RobotState is an Enum representing the robot's finite-state machine.
-- Robot composes Battery + a reference to a Path (list of coordinates) that
-  the PathPlanner produced. The Robot does not compute paths itself -- that
-  responsibility belongs to PathPlanner (separation of concerns).
-"""
 
 from enum import Enum
 
@@ -32,7 +20,7 @@ class Direction(Enum):
 
 
 class Battery:
-    """Simple battery model: drains per move, recharges per tick while charging."""
+    
 
     def __init__(self, capacity=100.0, drain_per_move=2.0, charge_per_tick=8.0,
                  low_threshold=28.0):
@@ -59,16 +47,7 @@ class Battery:
 
 
 class Robot:
-    """
-    An autonomous warehouse robot.
-
-    A Robot owns:
-      - its position (x, y) and facing direction
-      - a Battery
-      - its current RobotState
-      - the task it is currently executing (or None)
-      - the path (list of (x, y) cells) it must still follow
-    """
+   
 
     _id_counter = 1
 
@@ -103,13 +82,7 @@ class Robot:
         self.path = path
         self.state = RobotState.MOVING
 
-    def follow_path_step(self, warehouse, occupied_cells):
-        """
-        Advance one cell along self.path if the next cell is free.
-        Returns True if it moved, False if it had to wait (collision avoidance).
-        `occupied_cells` is the set of (x, y) currently occupied by other robots
-        this tick -- this is the simple "reservation" collision-avoidance scheme.
-        """
+    def follow_path_step(self, warehouse, occupied_
         if not self.path:
             return False
 
@@ -121,7 +94,7 @@ class Robot:
             self.total_wait_ticks += 1
             return False
 
-        # update facing direction
+      
         dx, dy = nx - self.x, ny - self.y
         for d in Direction:
             if d.value == (dx, dy):
