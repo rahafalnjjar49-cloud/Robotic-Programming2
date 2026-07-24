@@ -28,7 +28,7 @@ warehouse_simulator/
 This division applies the Separation of Concerns principle:
 Each class is responsible for one thing only, which meets the "Software Architecture" and "Modular Design" requirements from the project description.
 
-### مخطط الكلاسات 
+### Class Diagram 
 
 ```
 Warehouse                     Robot                    Package
@@ -53,7 +53,7 @@ Simulation                       StatisticsDashboard        WarehouseGUI
 
 ---
 
-## 3. كيف تُلبّى متطلبات المشروع الإلزامية
+##3. How Required Project Features Are Implemented
 
 Requirement	Where in the Code
 2D environment configurable from JSON	environment.py -> Warehouse.from_json() and config/warehouse_map.json
