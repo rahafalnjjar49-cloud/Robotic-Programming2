@@ -1,11 +1,4 @@
-"""
-package.py
-----------
-Package: a parcel that must move from a pickup (loading station) to a
-delivery station.
-Task: the unit of work handed to a Robot by the Scheduler. A Task wraps a
-Package plus its two legs (go pick it up, then deliver it) and tracks status.
-"""
+
 
 import itertools
 from enum import Enum
@@ -43,12 +36,7 @@ class Package:
 
 
 class Task:
-    """
-    Wraps a Package into something a Robot executes.
-    A Task has two phases:
-      1. PICKUP  -> robot travels to package.pickup, then "loads" it
-      2. DELIVER -> robot travels to package.destination, then "delivers" it
-    """
+  
 
     def __init__(self, package):
         self.package = package
